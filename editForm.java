@@ -217,10 +217,9 @@ public class editForm extends javax.swing.JFrame {
         // TODO add your handling code here:
       if(validates())
         {try {
-              String sqlstr ="INSERT INTO `manage` VALUES('"+ itemid.getText()+"','" + itemnam.getText()+"','" + itemtyp.getText()+
-                      "','" + identifi.getText()+"','" + loc.getText()+"','" + date.getText()+"','" + price.getText()+"')";
-              //System.out.println(sqlstr);
-              st = (PreparedStatement) conn.prepareStatement(sqlstr);
+               String sqlstr ="Update  set `manage` Id = "+ itemid.getText()+ ", Name = '"+ itemnam.getText()+ "', Type = '" + itemtyp.getText()+ "',IdentificationNo. = '" + identifi.getText()+"',Location = '" + loc.getText()+"',PurchaseDate = '" + date.getText()+"',Price = " + price.getText()+" where Id = " + cmbitemid.getSelectedItem().toString();
+            System.out.println(sqlstr);
+            st = (PreparedStatement) conn.prepareStatement(sqlstr);
               
             
             if(st.execute(sqlstr)== false)
